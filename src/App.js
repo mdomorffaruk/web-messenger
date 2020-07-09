@@ -17,16 +17,16 @@ function App() {
 
   const [input,setInput]=useState('');
   const [messages,setMessages]= useState([
-    {username:'Babul',text:"hi therer"},
-    {username:'Sagor',text:"Whats up"}
+    {username:'babul01',name: "Babul", text:"hi therer"},
+    {username:'sagor02',name:"Sagor", text:"Whats up"}
   ]);
 
   const [username,setUserName] = useState('');
-  //const [name,setName] = useState('');
+  const [name,setName] = useState('');
 
   useEffect(() => {
     setUserName(prompt('Enter your username:'))
-    //setName(prompt("Enter your full name:"))
+    setName(prompt("Enter your full name:"))
   }, [])
 
 
@@ -36,14 +36,14 @@ function App() {
   const sendMessage = (event)=>{
     event.preventDefault();
     setMessages([
-      ...messages, { username:username, text: input }
+      ...messages, { username:username,name:name, text: input }
     ]);
     setInput('');
   }; 
   return (
     <div className="App">
-      <h1>Assalamu-alaikum {username},</h1>
-      <h6>Join as {username}🙃!</h6>
+      <h1>Assalamu-alaikum {name},</h1>
+      <h6>Join successfully as {username}🙃!</h6>
       <form>
         <FormControl>
           <InputLabel>Enter message</InputLabel>
