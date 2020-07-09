@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, FormControl, InputLabel,Input } from '@material-ui/core';
-import Message from './Message';
+import Message from './Message.js';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,28 +16,33 @@ function App() {
   const classes = useStyles();
 
   const [input,setInput]=useState('');
-  const [messages,setMessages]= useState([]);
-  const [username,setUserName] = useState('');
-  const [name,setName] = useState('');
+  const [messages,setMessages]= useState([
+    {username:'Babul',text:"hi therer"},
+    {username:'Sagor',text:"Whats up"}
+  ]);
 
- 
+  const [username,setUserName] = useState('');
+  //const [name,setName] = useState('');
 
   useEffect(() => {
-     setUserName(prompt('Enter your username:'))
-     setName(prompt("Enter your full name:"))
+    setUserName(prompt('Enter your username:'))
+    //setName(prompt("Enter your full name:"))
   }, [])
+
 
   //console.log(username);
   //console.log(name);
 
   const sendMessage = (event)=>{
     event.preventDefault();
-    setMessages([...messages, { username:username, name: name,  text: input }]);
+    setMessages([
+      ...messages, { username:username, text: input }
+    ]);
     setInput('');
   }; 
   return (
     <div className="App">
-      <h1>Assalamu-alaikum {name},</h1>
+      <h1>Assalamu-alaikum {username},</h1>
       <h6>Join as {username}🙃!</h6>
       <form>
         <FormControl>
@@ -62,12 +67,9 @@ function App() {
       
       {
         messages.map((message)=>(
-        <Message
-         name = {message.name}
-         text= {message.text} />
+        <Message username={username} message={message}/>
         ))
        }
-      
     </div>
   );
 }
