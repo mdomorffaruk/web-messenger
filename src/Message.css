@@ -1,17 +1,18 @@
 .message{
     margin: 5px;
     width: fit-content;
+    background-color: cadetblue;
 }
 
 
 .message__user{
     margin-left: auto;
-    background-color:rgb(55, 55, 87, 0.829);
+    background-color:cadetblue;
     text-align: left !important;
 }
 
 .message__userCard{
-    background-color: cornflowerblue !important;
+    background-color: rgb(135, 168, 231) !important;
 }
 
 
