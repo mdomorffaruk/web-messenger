@@ -1,12 +1,15 @@
 .message{
     margin: 5px;
     width: fit-content;
+    height: fit-content;
     background-color: cadetblue;
 }
 
 
 .message__user{
     margin-left: auto;
+    width: fit-content;
+    height: fit-content;
     background-color:cadetblue;
     text-align: left !important;
 }

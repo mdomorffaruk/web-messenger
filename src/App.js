@@ -10,6 +10,7 @@ import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
 
 
+
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
@@ -22,6 +23,7 @@ function App() {
 
   const [input,setInput]=useState('');
   const [messages,setMessages]= useState([]);
+
   const [username,setUserName] = useState('');
   const [name,setName] = useState('');
 
@@ -32,6 +34,7 @@ function App() {
       setMessages(snapshot.docs.map(doc=>({id: doc.id, message: doc.data()})))
     })
   },[])
+
 
   useEffect(() => {
     setUserName(prompt('Enter your username:'))
@@ -44,6 +47,7 @@ function App() {
 
   const sendMessage = (event)=>{
     event.preventDefault();
+    
     db.collection("messages").add({
       username: username,
       name: name,
